@@ -37,16 +37,17 @@
         }
 
         /* LOGO SVG NO FUNDO DO HERO */
-       .hero-logo {
-        position: absolute    ;
-        bottom: 5%;   /* controla a distância da base */
-        right: 5%;    /* controla a distância da lateral direita */
-        width: 320px;
-        height: 320px;
-        opacity: 0.45;
-        z-index: 2;
-        animation: float-logo-smooth 6s ease-in-out infinite;
-        filter: brightness(1.2) contrast(1.1);
+      .hero-logo {
+    position: absolute;
+    right: 5%;        /* controla quanto entra da direita */
+    top: 55%;         /* sobe/desce a logo */
+    transform: translateY(-50%);
+    width: 350px;
+    height: 350px;
+    opacity: 0.45;
+    z-index: 2;
+    animation: float-logo-smooth 6s ease-in-out infinite;
+    filter: brightness(1.2) contrast(1.1);
 }
             pointer-events: none; /* não intercepta cliques */
         }
