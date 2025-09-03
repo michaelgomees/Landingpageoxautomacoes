@@ -7,11 +7,7 @@
     <meta name="description" content="Parceira estratégica em automação empresarial. Transformamos processos manuais em sistemas inteligentes que geram resultados mensuráveis.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -20,11 +16,7 @@
             font-weight: 400;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
         /* Hero Section */
         .hero {
@@ -39,15 +31,12 @@
 
         .hero::before {
             content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            position: absolute; inset: 0;
             background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(255,107,53,0.1) 100%);
             z-index: 1;
         }
 
+        /* LOGO SVG NO FUNDO DO HERO */
         .hero-logo {
             position: absolute;
             right: -80px;
@@ -56,35 +45,29 @@
             width: 700px;
             height: 700px;
             opacity: 0.35;
-            z-index: 2;
-            background-image: url('https://i.ibb.co/FkpnGVqd/Logo-hot-dog-1.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
+            z-index: 0; /* atrás do conteúdo mas à frente do gradiente ::before */
             animation: float-logo-smooth 6s ease-in-out infinite;
             filter: brightness(1.2) contrast(1.1);
+            pointer-events: none; /* não intercepta cliques */
         }
+        .hero-logo svg { width: 100%; height: 100%; display: block; }
 
         @keyframes float-logo-smooth {
-            0%, 100% { 
-                transform: translateY(-50%) translateX(0px) scale(1) rotate(0deg); 
+            0%, 100% {
+                transform: translateY(-50%) translateX(0px) scale(1) rotate(0deg);
                 opacity: 0.35;
             }
-            33% { 
-                transform: translateY(-45%) translateX(20px) scale(1.03) rotate(1deg); 
+            33% {
+                transform: translateY(-45%) translateX(20px) scale(1.03) rotate(1deg);
                 opacity: 0.40;
             }
-            66% { 
-                transform: translateY(-55%) translateX(30px) scale(1.05) rotate(2deg); 
+            66% {
+                transform: translateY(-55%) translateX(30px) scale(1.05) rotate(2deg);
                 opacity: 0.45;
             }
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-        }
+        .hero-content { position: relative; z-index: 2; max-width: 800px; }
 
         .hero-badge {
             display: inline-block;
@@ -128,11 +111,7 @@
             border: none;
             cursor: pointer;
         }
-
-        .cta-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(255, 107, 53, 0.4);
-        }
+        .cta-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(255, 107, 53, 0.4); }
 
         .cta-secondary {
             display: inline-block;
@@ -147,11 +126,7 @@
             border: 2px solid rgba(255, 255, 255, 0.3);
             margin-left: 16px;
         }
-
-        .cta-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.5);
-        }
+        .cta-secondary:hover { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.5); }
 
         /* Impact Section */
         .impact-section {
@@ -164,23 +139,14 @@
 
         .impact-section::before {
             content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 80%, rgba(255, 107, 53, 0.05) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(247, 147, 30, 0.05) 0%, transparent 50%);
+            position: absolute; inset: 0;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(255, 107, 53, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(247, 147, 30, 0.05) 0%, transparent 50%);
             z-index: 1;
         }
 
-        .impact-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
+        .impact-content { position: relative; z-index: 2; text-align: center; max-width: 1000px; margin: 0 auto; }
 
         .impact-badge {
             display: inline-block;
@@ -195,10 +161,7 @@
             animation: pulse-badge 2s ease-in-out infinite;
         }
 
-        @keyframes pulse-badge {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
+        @keyframes pulse-badge { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
 
         .impact-title {
             font-size: 3.5rem;
@@ -206,9 +169,7 @@
             line-height: 1.1;
             margin-bottom: 24px;
             background: linear-gradient(135deg, #1a1a1a 0%, #ff6b35 100%);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
+            -webkit-background-clip: text; background-clip: text; color: transparent;
             letter-spacing: -0.02em;
         }
 
@@ -223,12 +184,7 @@
             margin-right: auto;
         }
 
-        .impact-benefits {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 32px;
-            margin-top: 48px;
-        }
+        .impact-benefits { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin-top: 48px; }
 
         .impact-benefit {
             background: white;
@@ -240,768 +196,224 @@
             position: relative;
             overflow: hidden;
         }
+        .impact-benefit:hover { transform: translateY(-8px); box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12); border-color: #ff6b35; }
+        .impact-benefit::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(135deg, #ff6b35, #f7931e); }
+        .impact-benefit-icon { font-size: 2.2rem; margin-bottom: 16px; display: block; }
+        .impact-benefit h4 { font-size: 1.3rem; font-weight: 700; color: #1a202c; margin-bottom: 12px; line-height: 1.3; }
+        .impact-benefit p { color: #4a5568; line-height: 1.6; font-size: 1rem; }
 
-        .impact-benefit:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
-            border-color: #ff6b35;
-        }
+        .impact-cta { margin-top: 48px; }
+        .impact-cta-text { font-size: 1.1rem; color: #2d3748; font-weight: 500; margin-bottom: 24px; font-style: italic; }
 
-        .impact-benefit::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(135deg, #ff6b35, #f7931e);
-        }
-
-        .impact-benefit-icon {
-            font-size: 2.2rem;
-            margin-bottom: 16px;
-            display: block;
-        }
-
-        .impact-benefit h4 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #1a202c;
-            margin-bottom: 12px;
-            line-height: 1.3;
-        }
-
-        .impact-benefit p {
-            color: #4a5568;
-            line-height: 1.6;
-            font-size: 1rem;
-        }
-
-        .impact-cta {
-            margin-top: 48px;
-        }
-
-        .impact-cta-text {
-            font-size: 1.1rem;
-            color: #2d3748;
-            font-weight: 500;
-            margin-bottom: 24px;
-            font-style: italic;
-        }
-
-        /* Responsive para Impact Section */
-        @media (max-width: 768px) {
-            .impact-title {
-                font-size: 2.5rem;
-            }
-            
-            .impact-subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .impact-benefits {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-            
-            .impact-section {
-                padding: 60px 0;
-            }
-        }
-        .trust-bar {
-            background: white;
-            padding: 60px 0;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .trust-stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
-            text-align: center;
-        }
-
-        .trust-stat {
-            padding: 20px;
-        }
-
-        .trust-number {
-            font-size: 3rem;
-            font-weight: 800;
-            color: #ff6b35;
-            margin-bottom: 8px;
-            line-height: 1;
-        }
-
-        .trust-label {
-            font-size: 1rem;
-            color: #4a5568;
-            font-weight: 500;
-        }
+        /* Trust Bar */
+        .trust-bar { background: white; padding: 60px 0; border-bottom: 1px solid #e2e8f0; }
+        .trust-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; text-align: center; }
+        .trust-stat { padding: 20px; }
+        .trust-number { font-size: 3rem; font-weight: 800; color: #ff6b35; margin-bottom: 8px; line-height: 1; }
+        .trust-label { font-size: 1rem; color: #4a5568; font-weight: 500; }
 
         /* Benefits Section */
-        .benefits {
-            padding: 100px 0;
-            background: #f7fafc;
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 80px;
-        }
-
+        .benefits { padding: 100px 0; background: #f7fafc; }
+        .section-header { text-align: center; max-width: 800px; margin: 0 auto 80px; }
         .section-title {
-            font-size: 3.2rem;
-            font-weight: 800;
-            margin-bottom: 20px;
+            font-size: 3.2rem; font-weight: 800; margin-bottom: 20px;
             background: linear-gradient(135deg, #1a1a1a 0%, #ff6b35 100%);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            line-height: 1.2;
+            -webkit-background-clip: text; background-clip: text; color: transparent; line-height: 1.2;
         }
-
-        .section-subtitle {
-            font-size: 1.3rem;
-            color: #4a5568;
-            font-weight: 400;
-            line-height: 1.5;
-        }
-
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-        }
+        .section-subtitle { font-size: 1.3rem; color: #4a5568; font-weight: 400; line-height: 1.5; }
+        .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
 
         .benefit-card {
-            background: white;
-            padding: 40px 32px;
-            border-radius: 16px;
-            text-align: center;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-            transition: all 0.3s ease;
-            border: 1px solid #e2e8f0;
-            position: relative;
+            background: white; padding: 40px 32px; border-radius: 16px; text-align: center;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06); transition: all 0.3s ease; border: 1px solid #e2e8f0; position: relative;
         }
-
-        .benefit-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.12);
-            border-color: #ff6b35;
-        }
-
+        .benefit-card:hover { transform: translateY(-8px); box-shadow: 0 12px 48px rgba(0, 0, 0, 0.12); border-color: #ff6b35; }
         .benefit-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 24px;
-            font-size: 2rem;
-            color: white;
+            width: 80px; height: 80px; background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; font-size: 2rem; color: white;
         }
-
-        .benefit-card h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: #1a202c;
-        }
-
-        .benefit-card p {
-            color: #4a5568;
-            line-height: 1.6;
-            font-size: 1rem;
-        }
-
-        .benefit-metric {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            background: rgba(255, 107, 53, 0.1);
-            color: #ff6b35;
-            padding: 6px 12px;
-            border-radius: 8px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
+        .benefit-card h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 16px; color: #1a202c; }
+        .benefit-card p { color: #4a5568; line-height: 1.6; font-size: 1rem; }
+        .benefit-metric { position: absolute; top: 16px; right: 16px; background: rgba(255, 107, 53, 0.1); color: #ff6b35; padding: 6px 12px; border-radius: 8px; font-size: 0.8rem; font-weight: 600; }
 
         /* Automation Process Section */
-        .automation-process {
-            padding: 100px 0;
-            background: white;
-        }
-
-        .process-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-            margin-top: 60px;
-        }
-
-        .process-list {
-            list-style: none;
-        }
-
+        .automation-process { padding: 100px 0; background: white; }
+        .process-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-top: 60px; }
+        .process-list { list-style: none; }
         .process-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 32px;
-            padding: 24px;
-            background: #f7fafc;
-            border-radius: 12px;
-            border-left: 4px solid #ff6b35;
-            transition: all 0.3s ease;
+            display: flex; align-items: flex-start; margin-bottom: 32px; padding: 24px; background: #f7fafc; border-radius: 12px;
+            border-left: 4px solid #ff6b35; transition: all 0.3s ease;
         }
-
-        .process-item:hover {
-            background: white;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-            transform: translateX(8px);
-        }
-
+        .process-item:hover { background: white; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08); transform: translateX(8px); }
         .process-icon {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, #ff6b35, #f7931e);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 20px;
-            font-size: 1.2rem;
-            color: white;
-            flex-shrink: 0;
+            width: 48px; height: 48px; background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-right: 20px; font-size: 1.2rem; color: white; flex-shrink: 0;
         }
-
-        .process-content h4 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #1a202c;
-            margin-bottom: 8px;
-        }
-
-        .process-content p {
-            color: #4a5568;
-            line-height: 1.5;
-            font-size: 0.95rem;
-        }
-
+        .process-content h4 { font-size: 1.2rem; font-weight: 700; color: #1a202c; margin-bottom: 8px; }
+        .process-content p { color: #4a5568; line-height: 1.5; font-size: 0.95rem; }
         .process-visual {
             background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
-            border-radius: 20px;
-            padding: 60px 40px;
-            text-align: center;
-            position: relative;
+            border-radius: 20px; padding: 60px 40px; text-align: center; position: relative;
         }
-
         .process-visual::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            right: -20px;
-            width: 100px;
-            height: 100px;
+            content: ''; position: absolute; top: -20px; right: -20px; width: 100px; height: 100px;
             background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(247, 147, 30, 0.15));
-            border-radius: 50%;
-            z-index: 1;
+            border-radius: 50%; z-index: 1;
         }
 
         /* How It Works */
-        .how-it-works {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d3748 100%);
-            color: white;
-        }
-
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            margin-top: 80px;
-        }
-
-        .step {
-            text-align: center;
-            position: relative;
-        }
-
-        .step::after {
-            content: '';
-            position: absolute;
-            top: 50px;
-            right: -20px;
-            width: 40px;
-            height: 2px;
-            background: linear-gradient(90deg, #ff6b35, transparent);
-        }
-
-        .step:last-child::after {
-            display: none;
-        }
-
+        .how-it-works { padding: 100px 0; background: linear-gradient(135deg, #1a1a1a 0%, #2d3748 100%); color: white; }
+        .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 80px; }
+        .step { text-align: center; position: relative; }
+        .step::after { content: ''; position: absolute; top: 50px; right: -20px; width: 40px; height: 2px; background: linear-gradient(90deg, #ff6b35, transparent); }
+        .step:last-child::after { display: none; }
         .step-number {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin: 0 auto 32px;
-            position: relative;
-            box-shadow: 0 8px 32px rgba(255, 107, 53, 0.3);
+            width: 100px; height: 100px; background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; font-weight: 800; margin: 0 auto 32px;
+            position: relative; box-shadow: 0 8px 32px rgba(255, 107, 53, 0.3);
         }
-
-        .step h3 {
-            font-size: 1.6rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: white;
-        }
-
-        .step p {
-            opacity: 0.9;
-            line-height: 1.6;
-            color: #cbd5e0;
-        }
+        .step h3 { font-size: 1.6rem; font-weight: 700; margin-bottom: 16px; color: white; }
+        .step p { opacity: 0.9; line-height: 1.6; color: #cbd5e0; }
 
         /* Success Cases */
-        .success-cases {
-            padding: 100px 0;
-            background: white;
-        }
-
-        .testimonials {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-            margin: 80px 0;
-        }
-
-        .testimonial {
-            background: #f7fafc;
-            padding: 40px;
-            border-radius: 16px;
-            position: relative;
-            border-left: 4px solid #ff6b35;
-        }
-
-        .testimonial-content {
-            font-size: 1.1rem;
-            font-style: italic;
-            margin-bottom: 24px;
-            line-height: 1.6;
-            color: #2d3748;
-        }
-
-        .testimonial-author {
-            font-weight: 700;
-            color: #1a202c;
-            margin-bottom: 4px;
-        }
-
-        .testimonial-role {
-            color: #4a5568;
-            font-size: 0.9rem;
-        }
-
-        .testimonial-company {
-            font-size: 0.85rem;
-            color: #ff6b35;
-            font-weight: 600;
-            margin-top: 4px;
-        }
-
+        .success-cases { padding: 100px 0; background: white; }
+        .testimonials { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin: 80px 0; }
+        .testimonial { background: #f7fafc; padding: 40px; border-radius: 16px; position: relative; border-left: 4px solid #ff6b35; }
+        .testimonial-content { font-size: 1.1rem; font-style: italic; margin-bottom: 24px; line-height: 1.6; color: #2d3748; }
+        .testimonial-author { font-weight: 700; color: #1a202c; margin-bottom: 4px; }
+        .testimonial-role { color: #4a5568; font-size: 0.9rem; }
+        .testimonial-company { font-size: 0.85rem; color: #ff6b35; font-weight: 600; margin-top: 4px; }
         .case-metrics {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 32px;
-            margin-top: 60px;
-            padding: 60px 40px;
-            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
-            border-radius: 16px;
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-top: 60px; padding: 60px 40px;
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%); border-radius: 16px;
         }
-
-        .case-metric {
-            text-align: center;
-        }
-
-        .metric-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #ff6b35;
-            margin-bottom: 8px;
-        }
-
-        .metric-label {
-            font-size: 0.9rem;
-            color: #4a5568;
-            font-weight: 500;
-        }
+        .case-metric { text-align: center; }
+        .metric-number { font-size: 2.5rem; font-weight: 800; color: #ff6b35; margin-bottom: 8px; }
+        .metric-label { font-size: 0.9rem; color: #4a5568; font-weight: 500; }
 
         /* Authority Section */
-        .authority {
-            padding: 100px 0;
-            background: #f7fafc;
-        }
-
-        .authority-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            margin-top: 60px;
-        }
-
+        .authority { padding: 100px 0; background: #f7fafc; }
+        .authority-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 60px; }
         .authority-card {
-            background: white;
-            padding: 40px 32px;
-            border-radius: 16px;
-            text-align: center;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-            border: 1px solid #e2e8f0;
+            background: white; padding: 40px 32px; border-radius: 16px; text-align: center;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06); border: 1px solid #e2e8f0;
         }
-
         .authority-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #ff6b35, #f7931e);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 24px;
-            font-size: 1.5rem;
-            color: white;
+            width: 60px; height: 60px; background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; font-size: 1.5rem; color: white;
         }
-
-        .authority-card h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: #1a202c;
-        }
-
-        .authority-card p {
-            color: #4a5568;
-            line-height: 1.6;
-        }
+        .authority-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 16px; color: #1a202c; }
+        .authority-card p { color: #4a5568; line-height: 1.6; }
 
         /* Partnership Section */
         .partnership {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
-            color: white;
-            text-align: center;
+            padding: 100px 0; background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%); color: white; text-align: center;
         }
-
-        .partnership-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .partnership h2 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 24px;
-        }
-
-        .partnership p {
-            font-size: 1.4rem;
-            margin-bottom: 40px;
-            opacity: 0.95;
-            line-height: 1.5;
-        }
-
-        .partnership-features {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-            margin: 60px 0 40px;
-        }
-
+        .partnership-content { max-width: 800px; margin: 0 auto; }
+        .partnership h2 { font-size: 3rem; font-weight: 800; margin-bottom: 24px; }
+        .partnership p { font-size: 1.4rem; margin-bottom: 40px; opacity: 0.95; line-height: 1.5; }
+        .partnership-features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin: 60px 0 40px; }
         .partnership-feature {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 32px 24px;
-            border-radius: 16px;
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1); padding: 32px 24px; border-radius: 16px; backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
-
-        .partnership-feature h4 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .partnership-feature p {
-            font-size: 0.95rem;
-            opacity: 0.9;
-        }
+        .partnership-feature h4 { font-size: 1.2rem; font-weight: 700; margin-bottom: 12px; }
+        .partnership-feature p { font-size: 0.95rem; opacity: 0.9; }
 
         /* Final CTA */
-        .final-cta {
-            padding: 120px 0;
-            background: #1a1a1a;
-            color: white;
-            text-align: center;
-        }
-
-        .final-cta-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .final-cta h2 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 32px;
-            line-height: 1.2;
-        }
-
-        .final-cta p {
-            font-size: 1.4rem;
-            margin-bottom: 48px;
-            opacity: 0.9;
-            line-height: 1.5;
-        }
-
-        .cta-group {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .urgency-box {
-            background: rgba(255, 107, 53, 0.1);
-            padding: 24px;
-            border-radius: 12px;
-            margin: 40px 0;
-            border: 1px solid rgba(255, 107, 53, 0.3);
-        }
-
-        .contact-info {
-            margin-top: 40px;
-            padding-top: 40px;
-            border-top: 1px solid #374151;
-        }
-
-        .contact-info p {
-            font-size: 1rem;
-            opacity: 0.8;
-            margin-bottom: 8px;
-        }
+        .final-cta { padding: 120px 0; background: #1a1a1a; color: white; text-align: center; }
+        .final-cta-content { max-width: 800px; margin: 0 auto; }
+        .final-cta h2 { font-size: 3.5rem; font-weight: 800; margin-bottom: 32px; line-height: 1.2; }
+        .final-cta p { font-size: 1.4rem; margin-bottom: 48px; opacity: 0.9; line-height: 1.5; }
+        .cta-group { display: flex; gap: 20px; justify-content: center; align-items: center; flex-wrap: wrap; }
+        .urgency-box { background: rgba(255, 107, 53, 0.1); padding: 24px; border-radius: 12px; margin: 40px 0; border: 1px solid rgba(255, 107, 53, 0.3); }
+        .contact-info { margin-top: 40px; padding-top: 40px; border-top: 1px solid #374151; }
+        .contact-info p { font-size: 1rem; opacity: 0.8; margin-bottom: 8px; }
 
         /* Footer */
-        .footer {
-            background: #1a1a1a;
-            color: white;
-            padding: 80px 0 40px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 60px;
-            margin-bottom: 60px;
-        }
-
-        .footer-brand h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: #ff6b35;
-        }
-
-        .footer-brand p {
-            color: #cbd5e0;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        .footer-section h4 {
-            margin-bottom: 20px;
-            color: #ff6b35;
-            font-weight: 600;
-        }
-
-        .footer-section a {
-            color: #cbd5e0;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 12px;
-            transition: color 0.3s;
-        }
-
-        .footer-section a:hover {
-            color: #ff6b35;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 40px;
-            border-top: 1px solid #374151;
-            color: #9ca3af;
-        }
+        .footer { background: #1a1a1a; color: white; padding: 80px 0 40px; }
+        .footer-content { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+        .footer-brand h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 20px; color: #ff6b35; }
+        .footer-brand p { color: #cbd5e0; margin-bottom: 20px; line-height: 1.6; }
+        .footer-section h4 { margin-bottom: 20px; color: #ff6b35; font-weight: 600; }
+        .footer-section a { color: #cbd5e0; text-decoration: none; display: block; margin-bottom: 12px; transition: color 0.3s; }
+        .footer-section a:hover { color: #ff6b35; }
+        .footer-bottom { text-align: center; padding-top: 40px; border-top: 1px solid #374151; color: #9ca3af; }
 
         /* Responsive Design */
         @media (max-width: 1024px) {
-            .container {
-                padding: 0 20px;
-            }
+            .container { padding: 0 20px; }
+            .hero h1 { font-size: 3.5rem; }
+            .section-title { font-size: 2.8rem; }
+            .benefits-grid, .testimonials, .authority-grid { grid-template-columns: repeat(2, 1fr); }
+            .trust-stats { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+            .process-grid { grid-template-columns: 1fr; gap: 60px; }
 
-            .hero h1 {
-                font-size: 3.5rem;
-            }
-
-            .section-title {
-                font-size: 2.8rem;
-            }
-
-            .benefits-grid,
-            .testimonials,
-            .authority-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .trust-stats {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 32px;
-            }
-
-            .process-grid {
-                grid-template-columns: 1fr;
-                gap: 60px;
-            }
-
-            .hero-logo {
-                right: -100px;
-                width: 600px;
-                height: 600px;
-                opacity: 0.12;
-            }
+            .hero-logo { right: -100px; width: 600px; height: 600px; opacity: 0.22; }
         }
 
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.8rem;
-            }
+            .hero h1 { font-size: 2.8rem; }
+            .hero .subtitle { font-size: 1.2rem; }
+            .section-title { font-size: 2.2rem; }
+            .benefits-grid, .steps, .testimonials, .authority-grid, .partnership-features { grid-template-columns: 1fr; gap: 24px; }
+            .trust-stats { grid-template-columns: 1fr; gap: 24px; }
+            .case-metrics { grid-template-columns: repeat(2, 1fr); gap: 24px; padding: 40px 24px; }
+            .cta-secondary { margin-left: 0; margin-top: 16px; }
+            .cta-group { flex-direction: column; gap: 16px; }
+            .footer-content { grid-template-columns: 1fr; gap: 40px; }
+            .hero, .benefits, .automation-process, .how-it-works, .success-cases, .authority, .partnership { padding: 60px 0; }
+            .final-cta { padding: 80px 0; }
 
-            .hero .subtitle {
-                font-size: 1.2rem;
-            }
-
-            .section-title {
-                font-size: 2.2rem;
-            }
-
-            .benefits-grid,
-            .steps,
-            .testimonials,
-            .authority-grid,
-            .partnership-features {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-
-            .trust-stats {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-
-            .case-metrics {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 24px;
-                padding: 40px 24px;
-            }
-
-            .cta-secondary {
-                margin-left: 0;
-                margin-top: 16px;
-            }
-
-            .cta-group {
-                flex-direction: column;
-                gap: 16px;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .hero,
-            .benefits,
-            .automation-process,
-            .how-it-works,
-            .success-cases,
-            .authority,
-            .partnership {
-                padding: 60px 0;
-            }
-
-            .final-cta {
-                padding: 80px 0;
-            }
-
-            .hero-logo {
-                right: -80px;
-                width: 500px;
-                height: 500px;
-                opacity: 0.10;
-            }
+            .hero-logo { right: -80px; width: 500px; height: 500px; opacity: 0.18; }
         }
 
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .slide-in-left {
-            opacity: 0;
-            transform: translateX(-40px);
-            transition: all 0.8s ease;
-        }
-
-        .slide-in-left.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .scale-in {
-            opacity: 0;
-            transform: scale(0.9);
-            transition: all 0.6s ease;
-        }
-
-        .scale-in.visible {
-            opacity: 1;
-            transform: scale(1);
-        }
+        /* Scroll animations */
+        .fade-in { opacity: 0; transform: translateY(40px); transition: all 0.8s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .slide-in-left { opacity: 0; transform: translateX(-40px); transition: all 0.8s ease; }
+        .slide-in-left.visible { opacity: 1; transform: translateX(0); }
+        .scale-in { opacity: 0; transform: scale(0.9); transition: all 0.6s ease; }
+        .scale-in.visible { opacity: 1; transform: scale(1); }
     </style>
 </head>
 <body>
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-logo-simple">
-            <div class="ox-text">OX</div>
+        <div class="hero-logo" aria-hidden="true">
+            <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Logo OX estilizada">
+                <defs>
+                    <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:1" />
+                        <stop offset="50%" style="stop-color:#f7931e;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#e67e22;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="darkGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#2c3e50;stop-opacity:1" />
+                        <stop offset="50%" style="stop-color:#34495e;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#1a252f;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+
+                <!-- Letra O -->
+                <circle cx="80" cy="100" r="60" fill="none" stroke="url(#orangeGradient)" stroke-width="20"/>
+                <circle cx="80" cy="100" r="35" fill="none" stroke="url(#darkGradient)" stroke-width="15"/>
+
+                <!-- Letra X -->
+                <g transform="translate(200, 50)">
+                    <path d="M 0 0 L 50 100 L 0 100 Z" fill="url(#orangeGradient)" opacity="0.9"/>
+                    <path d="M 100 0 L 50 100 L 100 100 Z" fill="url(#orangeGradient)" opacity="0.9"/>
+                    <path d="M 25 0 L 75 100 L 25 100 Z" fill="url(#darkGradient)" opacity="0.8"/>
+                    <path d="M 75 0 L 25 100 L 75 100 Z" fill="url(#darkGradient)" opacity="0.8"/>
+                </g>
+
+                <!-- Pontos decorativos -->
+                <circle cx="280" cy="80" r="4" fill="url(#orangeGradient)"/>
+                <circle cx="290" cy="90" r="2" fill="url(#orangeGradient)" opacity="0.7"/>
+                <circle cx="270" cy="110" r="3" fill="url(#darkGradient)"/>
+            </svg>
         </div>
+
         <div class="container">
             <div class="hero-content">
                 <div class="hero-badge">✓ Parceira Estratégica em Automação Empresarial</div>
@@ -1020,37 +432,37 @@
         <div class="container">
             <div class="impact-content">
                 <div class="impact-badge">🚀 TRANSFORME SEU NEGÓCIO AGORA</div>
-                
+
                 <h2 class="impact-title">Sua Empresa Não Precisa Parar Para Vender</h2>
-                
+
                 <p class="impact-subtitle">Atendimento contínuo, vendas automatizadas e crescimento acelerado – 24 horas por dia, 7 dias por semana. Sem horário, sem pausa, sem limites. Enquanto você dorme, sua empresa continua prosperando.</p>
-                
+
                 <div class="impact-benefits">
                     <div class="impact-benefit fade-in">
                         <span class="impact-benefit-icon">📈</span>
                         <h4>Vendas Acontecendo Enquanto Você Dorme</h4>
                         <p>Sistemas inteligentes que capturam leads, nutrem relacionamentos e fecham vendas automaticamente. Sua receita cresce 24/7, mesmo nos fins de semana e feriados.</p>
                     </div>
-                    
+
                     <div class="impact-benefit fade-in">
                         <span class="impact-benefit-icon">🤖</span>
                         <h4>Atendimento Inteligente Sem Espera</h4>
                         <p>Chatbots que respondem instantaneamente, resolvem dúvidas complexas e encaminham apenas o que realmente precisa da sua atenção. Cliente satisfeito, sempre.</p>
                     </div>
-                    
+
                     <div class="impact-benefit fade-in">
                         <span class="impact-benefit-icon">⏱️</span>
                         <h4>Mais Tempo Para Focar no Crescimento</h4>
                         <p>Pare de perder tempo com tarefas repetitivas. Dedique-se à estratégia, inovação e expansão enquanto a automação cuida da operação do dia a dia.</p>
                     </div>
-                    
+
                     <div class="impact-benefit fade-in">
                         <span class="impact-benefit-icon">💬</span>
                         <h4>Experiência Profissional a Qualquer Hora</h4>
                         <p>Cada interação é personalizada e profissional. Seus clientes recebem atendimento de excelência mesmo quando sua equipe está offline.</p>
                     </div>
                 </div>
-                
+
                 <div class="impact-cta">
                     <p class="impact-cta-text">✨ Imagine: mais vendas, menos trabalho manual, clientes sempre satisfeitos ✨</p>
                     <a href="https://wa.me/5583996548374?text=🤖 Olá! Estou curioso(a) para descobrir como as automações podem transformar o atendimento e as vendas do meu negócio." class="cta-primary" style="font-size: 1.2rem; padding: 18px 36px;">
@@ -1086,13 +498,13 @@
     </section>
 
     <!-- Benefits Section -->
-    <section class="benefits">
+    <section class="benefits" id="beneficios">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Resultados Comprovados que Transformam Negócios</h2>
                 <p class="section-subtitle">Impactos diretos e mensuráveis que nossos clientes obtêm com automação inteligente</p>
             </div>
-            
+
             <div class="benefits-grid">
                 <div class="benefit-card fade-in">
                     <div class="benefit-metric">+40% Produtividade</div>
@@ -1100,35 +512,35 @@
                     <h3>Redução de Custos Operacionais</h3>
                     <p>Diminua até 70% dos custos com processos manuais. Automatizamos tarefas repetitivas liberando sua equipe para atividades estratégicas de maior valor.</p>
                 </div>
-                
+
                 <div class="benefit-card fade-in">
                     <div class="benefit-metric">-95% Erros</div>
                     <div class="benefit-icon">⚡</div>
                     <h3>Eficiência Operacional Máxima</h3>
                     <p>Processos 100% precisos e consistentes. Elimine retrabalho, falhas humanas e gargalos que limitam o crescimento da sua empresa.</p>
                 </div>
-                
+
                 <div class="benefit-card fade-in">
                     <div class="benefit-metric">5x ROI</div>
                     <div class="benefit-icon">📊</div>
                     <h3>Decisões Baseadas em Dados</h3>
                     <p>Relatórios automáticos em tempo real, dashboards inteligentes e insights precisos para tomada de decisão estratégica fundamentada.</p>
                 </div>
-                
+
                 <div class="benefit-card fade-in">
                     <div class="benefit-metric">24h Economia</div>
                     <div class="benefit-icon">🚀</div>
                     <h3>Escalabilidade Infinita</h3>
                     <p>Cresça sem aumentar custos proporcionalmente. Nossas automações se adaptam ao volume de demanda automaticamente.</p>
                 </div>
-                
+
                 <div class="benefit-card fade-in">
                     <div class="benefit-metric">+300% Velocidade</div>
                     <div class="benefit-icon">🎯</div>
                     <h3>Vantagem Competitiva</h3>
                     <p>Seja mais rápido, eficiente e preciso que a concorrência. Automação como diferencial estratégico no seu mercado.</p>
                 </div>
-                
+
                 <div class="benefit-card fade-in">
                     <div class="benefit-metric">-60% Tempo</div>
                     <div class="benefit-icon">🛡️</div>
@@ -1140,13 +552,13 @@
     </section>
 
     <!-- Automation Process Section -->
-    <section class="automation-process">
+    <section class="automation-process" id="automacao">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Como Automatizamos Cada Área da Sua Empresa</h2>
                 <p class="section-subtitle">Soluções específicas e resultados práticos para cada departamento do seu negócio</p>
             </div>
-            
+
             <div class="process-grid">
                 <div>
                     <ul class="process-list">
@@ -1157,7 +569,7 @@
                                 <p>Chatbots inteligentes que resolvem 80% das demandas automaticamente, reduzem tempo de espera e aumentam satisfação.</p>
                             </div>
                         </li>
-                        
+
                         <li class="process-item slide-in-left">
                             <div class="process-icon">📈</div>
                             <div class="process-content">
@@ -1165,7 +577,7 @@
                                 <p>Automação de leads, nurturing personalizado, follow-up inteligente e integração completa com CRM.</p>
                             </div>
                         </li>
-                        
+
                         <li class="process-item slide-in-left">
                             <div class="process-icon">💳</div>
                             <div class="process-content">
@@ -1173,7 +585,7 @@
                                 <p>Conciliação automática, emissão de boletos, controle de inadimplência e relatórios financeiros em tempo real.</p>
                             </div>
                         </li>
-                        
+
                         <li class="process-item slide-in-left">
                             <div class="process-icon">👥</div>
                             <div class="process-content">
@@ -1183,7 +595,7 @@
                         </li>
                     </ul>
                 </div>
-                
+
                 <div class="process-visual scale-in">
                     <div style="font-size: 5rem; margin-bottom: 24px;">🤖</div>
                     <h3>Integração Completa</h3>
@@ -1218,20 +630,20 @@
                 <h2 class="section-title" style="color: white;">Nossa Metodologia Comprovada</h2>
                 <p class="section-subtitle" style="color: #cbd5e0;">Processo estratégico que garante implementação rápida e resultados imediatos</p>
             </div>
-            
+
             <div class="steps">
                 <div class="step">
                     <div class="step-number">1</div>
                     <h3>Diagnóstico Estratégico</h3>
                     <p>Análise completa dos seus processos, identificação de gargalos e mapeamento de oportunidades de automação com maior ROI.</p>
                 </div>
-                
+
                 <div class="step">
                     <div class="step-number">2</div>
                     <h3>Desenvolvimento Personalizado</h3>
                     <p>Criação de soluções sob medida integradas aos seus sistemas existentes, sem interromper operações atuais.</p>
                 </div>
-                
+
                 <div class="step">
                     <div class="step-number">3</div>
                     <h3>Implementação e Otimização</h3>
@@ -1248,7 +660,7 @@
                 <h2 class="section-title">Cases de Sucesso que Comprovam Nossa Expertise</h2>
                 <p class="section-subtitle">Resultados reais de empresas que transformaram suas operações conosco</p>
             </div>
-            
+
             <div class="testimonials">
                 <div class="testimonial fade-in">
                     <p class="testimonial-content">"Após 6 meses com a OX Automações, reduzimos 85% do tempo em processos administrativos e aumentamos nossa margem de lucro em 40%. A implementação foi impecável e o suporte é excepcional."</p>
@@ -1256,21 +668,21 @@
                     <p class="testimonial-role">CEO & Fundador</p>
                     <p class="testimonial-company">MedTech Solutions - R$ 12M faturamento anual</p>
                 </div>
-                
+
                 <div class="testimonial fade-in">
                     <p class="testimonial-content">"Nossa operação financeira foi completamente transformada. Automatizamos 90% dos processos de cobrança e reduzimos a inadimplência de 12% para 3%. ROI de 650% no primeiro ano."</p>
                     <p class="testimonial-author">Marina Santos Oliveira</p>
                     <p class="testimonial-role">Diretora Financeira</p>
                     <p class="testimonial-company">LogiCorp Brasil - R$ 35M faturamento anual</p>
                 </div>
-                
+
                 <div class="testimonial fade-in">
                     <p class="testimonial-content">"O atendimento ao cliente foi revolucionado. Nosso chatbot resolve 78% das demandas automaticamente e nosso NPS subiu de 7.2 para 9.1. Investimento que se pagou em 4 meses."</p>
                     <p class="testimonial-author">Roberto Lima Costa</p>
                     <p class="testimonial-role">Diretor de Operações</p>
                     <p class="testimonial-company">VarejoMax - R$ 28M faturamento anual</p>
                 </div>
-                
+
                 <div class="testimonial fade-in">
                     <p class="testimonial-content">"Conseguimos processar 10x mais leads com a mesma equipe de vendas. A automação de marketing gerou R$ 2.3M em vendas adicionais apenas nos primeiros 8 meses."</p>
                     <p class="testimonial-author">Ana Paula Ferreira</p>
@@ -1278,7 +690,7 @@
                     <p class="testimonial-company">TechStart Inovação - R$ 18M faturamento anual</p>
                 </div>
             </div>
-            
+
             <div class="case-metrics">
                 <div class="case-metric">
                     <div class="metric-number">R$ 8.2M</div>
@@ -1301,44 +713,44 @@
     </section>
 
     <!-- Authority Section -->
-    <section class="authority">
+    <section class="authority" id="sobre">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Por Que Somos Referência em Automação Empresarial</h2>
                 <p class="section-subtitle">Expertise técnica, experiência comprovada e compromisso com seus resultados</p>
             </div>
-            
+
             <div class="authority-grid">
                 <div class="authority-card">
                     <div class="authority-icon">🚀</div>
                     <h3>Especialistas em Soluções Inteligentes</h3>
                     <p>Transformamos empresas com automação 24/7, aumentando eficiência e impulsionando resultados reais.</p>
                 </div>
-                
+
                 <div class="authority-card">
                     <div class="authority-icon">👨‍💻</div>
                     <h3>Time de Especialistas</h3>
                     <p>Engenheiros, desenvolvedores e consultores certificados nas principais tecnologias de automação e IA do mercado.</p>
                 </div>
-                
+
                 <div class="authority-card">
                     <div class="authority-icon">🔒</div>
                     <h3>Segurança e Compliance</h3>
                     <p>Certificações ISO 27001, LGPD compliant e protocolos rigorosos de segurança para proteger seus dados empresariais.</p>
                 </div>
-                
+
                 <div class="authority-card">
                     <div class="authority-icon">🤝</div>
                     <h3>Suporte 24/7</h3>
                     <p>Equipe dedicada disponível 24 horas para suporte técnico, manutenção preventiva e otimizações contínuas.</p>
                 </div>
-                
+
                 <div class="authority-card">
                     <div class="authority-icon">📈</div>
                     <h3>Metodologia Comprovada</h3>
                     <p>Framework próprio de implementação que garante resultados rápidos e mensuráveis em todos os projetos.</p>
                 </div>
-                
+
                 <div class="authority-card">
                     <div class="authority-icon">🚀</div>
                     <h3>Tecnologia de Ponta</h3>
@@ -1354,24 +766,24 @@
             <div class="partnership-content">
                 <h2>Mais que Fornecedores: Parceiros Estratégicos do Seu Crescimento</h2>
                 <p>Estabelecemos uma parceria de longo prazo focada no seu sucesso sustentável e crescimento contínuo.</p>
-                
+
                 <div class="partnership-features">
                     <div class="partnership-feature">
                         <h4>🎯 Consultoria Estratégica</h4>
                         <p>Análise contínua de oportunidades, roadmap de automação e alinhamento com objetivos de negócio.</p>
                     </div>
-                    
+
                     <div class="partnership-feature">
                         <h4>🔧 Manutenção Proativa</h4>
                         <p>Monitoramento 24/7, atualizações automáticas e otimizações constantes para máxima performance.</p>
                     </div>
-                    
+
                     <div class="partnership-feature">
                         <h4>📊 Relatórios Executivos</h4>
                         <p>Reports mensais com métricas de performance, ROI detalhado e recomendações de melhorias.</p>
                     </div>
                 </div>
-                
+
                 <a href="https://wa.me/5583996548374?text=🤖 Olá! Estou curioso(a) para descobrir como as automações podem transformar o atendimento e as vendas do meu negócio." class="cta-primary" style="background: white; color: #ff6b35; font-size: 1.2rem; padding: 20px 40px;">
                     Vamos Ser Parceiros? Agende Sua Reunião
                 </a>
@@ -1385,11 +797,11 @@
             <div class="final-cta-content">
                 <h2>Pronto Para Transformar Sua Empresa?</h2>
                 <p>Empresas que automatizam primeiro conquistam vantagem competitiva definitiva. Não fique para trás.</p>
-                
+
                 <div class="urgency-box">
                     <p><strong>⚡ Oportunidade Limitada:</strong> Estamos selecionando apenas 5 novas parcerias por mês para garantir implementação de excelência e suporte personalizado.</p>
                 </div>
-                
+
                 <div class="cta-group">
                     <a href="https://wa.me/5583996548374?text=🤖 Olá! Estou curioso(a) para descobrir como as automações podem transformar o atendimento e as vendas do meu negócio." class="cta-primary" style="font-size: 1.3rem; padding: 20px 40px;">
                         🚀 Agendar Reunião Estratégica Gratuita
@@ -1398,7 +810,7 @@
                         📞 Ligar Agora: (83) 9 9654-8374
                     </a>
                 </div>
-                
+
                 <div class="contact-info">
                     <p><strong>Contato Executivo:</strong> oxautomaçoes@gmail.com</p>
                     <p><strong>Endereço:</strong> Campina Grande, Paraíba, Brasil</p>
@@ -1419,7 +831,7 @@
                     <p>📞 (83) 9 9654-8374 
                         ✉️ oxautomaçoes@gmail.com</p>
                 </div>
-                
+
                 <div class="footer-section">
                     <h4>Contato</h4>
                     <a href="https://wa.me/5583996548374?text=🤖 Olá! Estou curioso(a) para descobrir como as automações podem transformar o atendimento e as vendas do meu negócio.">📱 WhatsApp</a>
@@ -1428,7 +840,7 @@
                     <a href="https://instagram.com/oxautomacoes" target="_blank">📷 @oxautomacoes</a>
                     <a href="https://wa.me/5583996548374?text=🤖 Olá! Estou curioso(a) para descobrir como as automações podem transformar o atendimento e as vendas do meu negócio.">🚀 Agendar Reunião</a>
                 </div>
-                
+
                 <div class="footer-section">
                     <h4>Informações</h4>
                     <a href="#casos">Cases de Sucesso</a>
@@ -1436,14 +848,14 @@
                     <a href="#beneficios">Nossos Resultados</a>
                     <a href="#sobre">Sobre a OX</a>
                 </div>
-                
+
                 <div class="footer-section">
                     <h4>Legal</h4>
                     <a href="#privacidade">Política de Privacidade</a>
                     <a href="#termos">Termos de Serviço</a>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2025 OX Automações. Todos os direitos reservados. | Transformando o futuro dos negócios através da automação inteligente.</p>
             </div>
@@ -1454,35 +866,24 @@
         // Smooth scrolling para links internos
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                const href = this.getAttribute('href');
+                if (href.length > 1) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
                 }
             });
         });
 
         // Intersection Observer para animações
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
+            entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } });
         }, observerOptions);
 
-        // Aplicar animações aos elementos
-        document.querySelectorAll('.fade-in, .slide-in-left, .scale-in').forEach(el => {
-            observer.observe(el);
-        });
+        document.querySelectorAll('.fade-in, .slide-in-left, .scale-in').forEach(el => observer.observe(el));
 
         // Contador animado para estatísticas
         function animateCounters() {
@@ -1517,7 +918,6 @@
                     }
                 });
             }, { threshold: 0.5 });
-            
             trustObserver.observe(trustSection);
         }
 
@@ -1526,10 +926,7 @@
             const hero = document.querySelector('.hero');
             const scrolled = window.pageYOffset;
             const rate = scrolled * -0.5;
-            
-            if (hero) {
-                hero.style.transform = `translateY(${rate}px)`;
-            }
+            if (hero) hero.style.transform = `translateY(${rate}px)`;
         });
     </script>
 </body>
