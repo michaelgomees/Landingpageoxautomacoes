@@ -37,17 +37,17 @@
         }
 
         /* LOGO SVG NO FUNDO DO HERO */
-        .hero-logo {
-            position: absolute;
-            right: 65%;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 400px;
-            height: 400px;
-            opacity: 0.30;
-            z-index: 2; /* atrás do conteúdo mas à frente do gradiente ::before */
-            animation: float-logo-smooth 6s ease-in-out infinite;
-            filter: brightness(1.2) contrast(1.1);
+       .hero-logo {
+        position: absolute    ;
+        bottom: 5%;   /* controla a distância da base */
+        right: 5%;    /* controla a distância da lateral direita */
+        width: 320px;
+        height: 320px;
+        opacity: 0.45;
+        z-index: 2;
+        animation: float-logo-smooth 6s ease-in-out infinite;
+        filter: brightness(1.2) contrast(1.1);
+}
             pointer-events: none; /* não intercepta cliques */
         }
         .hero-logo svg { width: 100%; height: 100%; display: block; }
@@ -349,7 +349,13 @@
             .trust-stats { grid-template-columns: repeat(2, 1fr); gap: 32px; }
             .process-grid { grid-template-columns: 1fr; gap: 60px; }
 
-            .hero-logo { right: 10px; width: 300px; height: 300px; opacity: -30; }
+            .hero-logo {
+        width: 260px;
+        height: 260px;
+        bottom: 3%;
+        right: 3%;
+        opacity: 0.35;
+    }
         }
 
         @media (max-width: 768px) {
@@ -365,7 +371,13 @@
             .hero, .benefits, .automation-process, .how-it-works, .success-cases, .authority, .partnership { padding: 60px 0; }
             .final-cta { padding: 80px 0; }
 
-            .hero-logo { right: 0px; width: 200px; height: 200px; opacity: 0.15; }
+            .hero-logo {
+        width: 200px;
+        height: 200px;
+        bottom: 2%;
+        right: 2%;
+        opacity: 0.30;
+    }
         }
 
         /* Scroll animations */
